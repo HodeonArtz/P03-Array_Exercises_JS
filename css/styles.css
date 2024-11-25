@@ -21,10 +21,10 @@ button {
   background-color: unset;
 }
 
-.exercise-1 .random-numbers {
+.exercise .random-numbers {
   display: flex;
 }
-.exercise-1 .random-numbers .square {
+.exercise .random-numbers .square {
   display: flex;
   align-items: center;
   justify-content: center;
