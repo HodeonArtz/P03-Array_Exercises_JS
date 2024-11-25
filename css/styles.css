@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: unset;
+  font-family: unset;
+  background-color: unset;
+}
+
+.exercise-1 .random-numbers {
+  display: flex;
+}
+.exercise-1 .random-numbers .square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 2.5rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+  aspect-ratio: 1/1;
+}
+
+/*# sourceMappingURL=styles.css.map */
