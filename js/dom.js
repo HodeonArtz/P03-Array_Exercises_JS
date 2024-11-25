@@ -1,4 +1,7 @@
-export const exercise1 = document.querySelector(".exercise1 .random-numbers");
+/**
+ * Parent div from first exercise
+ */
+export const exercise1 = document.querySelector(".exercise-1 .random-numbers");
 
 /**
  * Generates a new square div.
