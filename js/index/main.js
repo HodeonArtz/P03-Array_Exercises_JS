@@ -27,10 +27,24 @@ const firstAndLastNumsMatrix = [
   ...llista_bidimensional.map((numberRow) => getFirstAndLastNum(numberRow)),
 ];
 
+/**
+ *
+ * @param {number[]} arrayNumbers
+ * @returns
+ */
 function getFirstAndLastNum(arrayNumbers) {
   return [arrayNumbers[0], arrayNumbers[arrayNumbers.length - 1]];
 }
 
-dom.handleOnClick(dom.showValuesExercise3, () => {
+dom.handleOnClick(dom.showValues, () => {
   dom.generateNumbersMatrix(dom.exercise3, firstAndLastNumsMatrix);
+});
+
+// >>=====>>====>>====#[<| Exercise 4 |>]#====<<====<<=====<<
+// Remove last value from arrays
+dom.handleOnClick(dom.removeValue, () => {
+  llista_numeros.pop();
+  dom.generateNumbersVector(dom.exercise1, llista_numeros);
+  llista_bidimensional.forEach((numberRow) => numberRow.pop());
+  dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
 });
