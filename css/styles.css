@@ -24,20 +24,43 @@ button {
 .exercise .random-numbers {
   display: flex;
 }
-.exercise .random-numbers .square {
+.exercise .square {
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 2.5rem;
-  border: 1px solid black;
+  border: 1px solid #c9c9c9;
   padding: 0.5rem;
   aspect-ratio: 1/1;
 }
-.exercise .random-numbers .square__row {
+.exercise .square__row {
   display: flex;
 }
-.exercise__2 .random-numbers {
+.exercise__2 .random-numbers, .exercise__3 .random-numbers {
   flex-direction: column;
+}
+.exercise button {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: #ebebeb;
+  color: #131313;
+  border-color: #c9c9c9;
+  border-width: 0.09375rem;
+  border-radius: 0.75rem;
+  border-style: solid;
+  transition-property: background-color, border-color, color;
+  transition-duration: 125ms;
+  transition-timing-function: cubic-bezier(0.2, 0.89, 0.6, 0.95);
+  cursor: pointer;
+}
+.exercise button:hover {
+  background-color: #d2d2d2;
+  color: black;
+}
+.exercise button:active {
+  background-color: #f8f8f8;
+  color: #202020;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -19,3 +19,18 @@ const llista_bidimensional = Array.from({ length: 2 }, () =>
 );
 
 dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
+
+// >>=====>>====>>====#[<| Exercise 3 |>]#====<<====<<=====<<
+// Show first and last elements from arrays
+const firstAndLastNumsMatrix = [
+  getFirstAndLastNum(llista_numeros),
+  ...llista_bidimensional.map((numberRow) => getFirstAndLastNum(numberRow)),
+];
+
+function getFirstAndLastNum(arrayNumbers) {
+  return [arrayNumbers[0], arrayNumbers[arrayNumbers.length - 1]];
+}
+
+dom.handleOnClick(dom.showValuesExercise3, () => {
+  dom.generateNumbersMatrix(dom.exercise3, firstAndLastNumsMatrix);
+});

@@ -6,6 +6,11 @@ export const exercise1 = document.querySelector(".exercise__1 .random-numbers");
 export const exercise2 = document.querySelector(".exercise__2 .random-numbers");
 
 export const exercise3 = document.querySelector(".exercise__3 #resultats");
+
+export const showValuesExercise3 = document.querySelector(
+  ".exercise__3 .show-values"
+);
+
 /**
  * Generates a new square div.
  *
@@ -47,4 +52,13 @@ export function generateNumbersMatrix(parentElement, matrix) {
 
     appendChild(parentElement, newRowElement);
   });
+}
+
+/**
+ *
+ * @param {Element} element
+ * @param {function} handleOnClick
+ */
+export function handleOnClick(element, handleOnClick) {
+  element.addEventListener("click", handleOnClick);
 }
