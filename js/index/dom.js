@@ -7,11 +7,15 @@ export const exercise2 = document.querySelector(".exercise__2 .random-numbers");
 
 export const exercise3 = document.querySelector(".exercise__3 #resultats");
 
-export const showValues = document.querySelector(".exercise__3 .show-values");
+export const btnShowValues = document.querySelector(
+  ".exercise__3 .show-values"
+);
 
-export const removeValue = document.querySelector(
+export const btnRemoveValue = document.querySelector(
   ".exercise__4 .remove-values"
 );
+
+export const btnAddValue = document.querySelector(".exercise__5 .add-value");
 
 export /**
  * Generates a new square div.

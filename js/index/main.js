@@ -36,15 +36,22 @@ function getFirstAndLastNum(arrayNumbers) {
   return [arrayNumbers[0], arrayNumbers[arrayNumbers.length - 1]];
 }
 
-dom.handleOnClick(dom.showValues, () => {
+dom.handleOnClick(dom.btnShowValues, () => {
   dom.generateNumbersMatrix(dom.exercise3, firstAndLastNumsMatrix);
 });
 
 // >>=====>>====>>====#[<| Exercise 4 |>]#====<<====<<=====<<
 // Remove last value from arrays
-dom.handleOnClick(dom.removeValue, () => {
+dom.handleOnClick(dom.btnRemoveValue, () => {
   llista_numeros.pop();
   dom.generateNumbersVector(dom.exercise1, llista_numeros);
   llista_bidimensional.forEach((numberRow) => numberRow.pop());
   dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
+});
+
+// >>=====>>====>>====#[<| Exercise 5 |>]#====<<====<<=====<<
+// Add values at the end of llista_numeros' array
+dom.handleOnClick(dom.btnAddValue, () => {
+  llista_numeros.push(Math.floor(api.generateRandomNumber(1, 5)));
+  dom.generateNumbersVector(dom.exercise1, llista_numeros);
 });
