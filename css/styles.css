@@ -21,6 +21,9 @@ button {
   background-color: unset;
 }
 
+.exercise .hidden {
+  display: none;
+}
 .exercise .random-numbers {
   display: flex;
 }
@@ -53,6 +56,7 @@ button {
   transition-duration: 125ms;
   transition-timing-function: cubic-bezier(0.2, 0.89, 0.6, 0.95);
   cursor: pointer;
+  display: block;
 }
 .exercise button:hover {
   background-color: #d2d2d2;

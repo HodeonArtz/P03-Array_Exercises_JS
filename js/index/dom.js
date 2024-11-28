@@ -7,6 +7,8 @@ export const exercise2 = document.querySelector(".exercise__2 .random-numbers");
 
 export const exercise3 = document.querySelector(".exercise__3 #resultats");
 
+export const selectedScreen = document.querySelector(".selected-screen");
+
 export const btnShowValues = document.querySelector(
   ".exercise__3 .show-values"
 );
@@ -16,6 +18,38 @@ export const btnRemoveValue = document.querySelector(
 );
 
 export const btnAddValue = document.querySelector(".exercise__5 .add-value");
+
+export const btnModifyValue = document.querySelector(
+  ".exercise__6 .modify-value"
+);
+
+export const btnDeleteValue = document.querySelector(
+  ".exercise__6 .delete-value"
+);
+
+export const btnAddIntroducedValue = document.querySelector(
+  ".exercise__6 .add-value"
+);
+
+export const btnCancelSelection = document.querySelector(
+  ".exercise__6 .cancel"
+);
+
+export const inputNumberValue = document.querySelector(
+  ".exercise__6 .number-value"
+);
+
+inputNumberValue.addEventListener("change", () => {
+  if (+inputNumberValue.value < 1) {
+    inputNumberValue.value = 1;
+    return;
+  }
+  if (+inputNumberValue.value > 5) {
+    inputNumberValue.value = 5;
+    return;
+  }
+  inputNumberValue.value = +inputNumberValue.value;
+});
 
 export /**
  * Generates a new square div.
@@ -46,8 +80,11 @@ function appendChild(parentElement, childElement) {
  */
 export function generateNumbersVector(parentElement, vector) {
   parentElement.innerHTML = "";
-  vector.forEach((number) => {
-    appendChild(parentElement, createSquareDiv(number));
+
+  vector.forEach((number, i) => {
+    const squareDiv = createSquareDiv(number);
+    squareDiv.dataset.index = i;
+    appendChild(parentElement, squareDiv);
   });
 }
 
@@ -66,6 +103,14 @@ export function generateNumbersMatrix(parentElement, matrix) {
   });
 }
 
+export function hideSelectedScreen() {
+  inputNumberValue.value = 1;
+  selectedScreen.classList.add("hidden");
+}
+export function showSelectedScreen() {
+  selectedScreen.classList.remove("hidden");
+}
+
 /**
  * Function to handle clicks on elements
  * @param {Element} element
@@ -73,4 +118,26 @@ export function generateNumbersMatrix(parentElement, matrix) {
  */
 export function handleOnClick(element, handleOnClick) {
   element.addEventListener("click", handleOnClick);
+}
+
+/**
+ *
+ * @param {Element} parentElement
+ * @returns {NodeList}
+ */
+export function getAllNumbers(parentElement) {
+  return parentElement.querySelectorAll(".square");
+}
+
+/**
+ * Handles the passed list of arrays
+ * @param {NodeList} elements List of elements to handle
+ * @param {function} handleOnClick
+ */
+export function handleOnClickAll(elements, handleOnClick) {
+  [...elements].forEach((element) => {
+    element.addEventListener("click", (e) => {
+      handleOnClick(element, e);
+    });
+  });
 }

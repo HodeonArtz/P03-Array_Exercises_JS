@@ -7,7 +7,7 @@
     <script type="module" src="./js/index/main.js" defer></script>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body class="main-exercises">
     <header>
       <h1>Exercises to practice JavaScript</h1>
     </header>
@@ -32,6 +32,28 @@
       <section class="exercise exercise__5">
         <h2>Add value at the end</h2>
         <button class="add-value">AFEGEIX VALORS FINAL</button>
+      </section>
+      <section class="exercise exercise__6">
+        <h2>Select value</h2>
+        <p>Select a value from the first array</p>
+        <div class="selected-screen hidden">
+          <p>Selected value: <span class="selected_value"></span></p>
+          <div>
+            <label for="number-value">Number: </label>
+            <input
+              type="number"
+              id="number-value"
+              class="number-value"
+              min="1"
+              max="5"
+              value="1"
+            />
+          </div>
+          <button class="modify-value">Modify number</button>
+          <button class="delete-value">Delete number</button>
+          <button class="add-value">Add value</button>
+          <button class="cancel">Cancel</button>
+        </div>
       </section>
     </main>
   </body>

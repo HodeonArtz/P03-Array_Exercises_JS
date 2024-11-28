@@ -21,11 +21,6 @@ const llista_bidimensional = Array.from({ length: 2 }, () =>
 dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
 
 // >>=====>>====>>====#[<| Exercise 3 |>]#====<<====<<=====<<
-// Show first and last elements from arrays
-const firstAndLastNumsMatrix = [
-  getFirstAndLastNum(llista_numeros),
-  ...llista_bidimensional.map((numberRow) => getFirstAndLastNum(numberRow)),
-];
 
 /**
  *
@@ -37,6 +32,11 @@ function getFirstAndLastNum(arrayNumbers) {
 }
 
 dom.handleOnClick(dom.btnShowValues, () => {
+  // Show first and last elements from arrays
+  const firstAndLastNumsMatrix = [
+    getFirstAndLastNum(llista_numeros),
+    ...llista_bidimensional.map((numberRow) => getFirstAndLastNum(numberRow)),
+  ];
   dom.generateNumbersMatrix(dom.exercise3, firstAndLastNumsMatrix);
 });
 
@@ -47,6 +47,10 @@ dom.handleOnClick(dom.btnRemoveValue, () => {
   dom.generateNumbersVector(dom.exercise1, llista_numeros);
   llista_bidimensional.forEach((numberRow) => numberRow.pop());
   dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
+  dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+    selectedNumber = element;
+    dom.showSelectedScreen();
+  });
 });
 
 // >>=====>>====>>====#[<| Exercise 5 |>]#====<<====<<=====<<
@@ -54,4 +58,62 @@ dom.handleOnClick(dom.btnRemoveValue, () => {
 dom.handleOnClick(dom.btnAddValue, () => {
   llista_numeros.push(Math.floor(api.generateRandomNumber(1, 5)));
   dom.generateNumbersVector(dom.exercise1, llista_numeros);
+  dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+    selectedNumber = element;
+    dom.showSelectedScreen();
+  });
+});
+
+// >>=====>>====>>====#[<| Exercise 6 |>]#====<<====<<=====<<
+// Do stuff with a number
+
+/**
+ *  @type {Element}
+ */
+let selectedNumber = null;
+dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+  selectedNumber = element;
+  dom.showSelectedScreen();
+});
+
+dom.handleOnClick(dom.btnCancelSelection, () => {
+  selectedNumber = null;
+  dom.hideSelectedScreen();
+});
+
+dom.handleOnClick(dom.btnModifyValue, () => {
+  llista_numeros[selectedNumber.dataset.index] = +dom.inputNumberValue.value;
+  dom.generateNumbersVector(dom.exercise1, llista_numeros);
+  dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+    selectedNumber = element;
+    dom.showSelectedScreen();
+  });
+  selectedNumber = null;
+  dom.hideSelectedScreen();
+});
+
+dom.handleOnClick(dom.btnDeleteValue, () => {
+  llista_numeros.splice(selectedNumber.dataset.index, 1);
+  dom.generateNumbersVector(dom.exercise1, llista_numeros);
+  dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+    selectedNumber = element;
+    dom.showSelectedScreen();
+  });
+  selectedNumber = null;
+  dom.hideSelectedScreen();
+});
+dom.handleOnClick(dom.btnAddIntroducedValue, () => {
+  llista_numeros.splice(
+    selectedNumber.dataset.index,
+    0,
+    +dom.inputNumberValue.value
+  );
+
+  dom.generateNumbersVector(dom.exercise1, llista_numeros);
+  dom.handleOnClickAll(dom.getAllNumbers(dom.exercise1), (element) => {
+    selectedNumber = element;
+    dom.showSelectedScreen();
+  });
+  selectedNumber = null;
+  dom.hideSelectedScreen();
 });
