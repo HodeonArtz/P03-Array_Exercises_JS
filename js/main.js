@@ -9,6 +9,13 @@ const llista_numeros = Array.from({ length: 5 }, () =>
   Math.floor(api.generateRandomNumber(1, 10))
 );
 
-llista_numeros.forEach((randomNumber) => {
-  dom.createSquareDiv(dom.exercise1, randomNumber);
-});
+dom.generateNumbersVector(dom.exercise1, llista_numeros);
+
+// >>=====>>====>>====#[<| Exercise 2 |>]#====<<====<<=====<<
+// Generate a bidimensional array of numbers
+
+const llista_bidimensional = Array.from({ length: 2 }, () =>
+  Array.from({ length: 5 }, () => Math.floor(api.generateRandomNumber(1, 10)))
+);
+
+dom.generateNumbersMatrix(dom.exercise2, llista_bidimensional);
