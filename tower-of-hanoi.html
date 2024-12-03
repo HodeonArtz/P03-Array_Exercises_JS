@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/hanoi.css" />
+    <title>Tower of Hanoi</title>
+  </head>
+  <body class="tower-of-hanoi">
+    <header class="header">
+      <h1 class="header__game-title">Tower of Hanoi</h1>
+    </header>
+    <main class="game">
+      <section class="game__start">
+        <h2 class="game__start__title">Game Options</h2>
+        <form class="game__settings">
+          <label>
+            Start with:
+            <input type="number" name="" min="1" max="5" id="number-of-disks" />
+            disks
+          </label>
+          <button type="submit">START</button>
+        </form>
+      </section>
+      <section class="game__in-game">
+        <h3 class="game__in-game__message">
+          Move all the disks to the black rod!
+        </h3>
+        <div class="game__in-game__screen hanoi">
+          <div class="hanoi__rod-1">
+            <button class="hanoi__disk" data-disk-num="1">1</button>
+            <button class="hanoi__disk" data-disk-num="2">2</button>
+            <button class="hanoi__disk" data-disk-num="3">3</button>
+            <button class="hanoi__disk" data-disk-num="4">4</button>
+            <button class="hanoi__disk" data-disk-num="5">5</button>
+          </div>
+          <div class="hanoi__rod-2"></div>
+          <div class="hanoi__rod-3"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
