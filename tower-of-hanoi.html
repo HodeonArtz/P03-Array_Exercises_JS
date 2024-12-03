@@ -27,15 +27,62 @@
           Move all the disks to the black rod!
         </h3>
         <div class="game__in-game__screen hanoi">
-          <div class="hanoi__rod-1">
-            <button class="hanoi__disk" data-disk-num="1">1</button>
-            <button class="hanoi__disk" data-disk-num="2">2</button>
-            <button class="hanoi__disk" data-disk-num="3">3</button>
-            <button class="hanoi__disk" data-disk-num="4">4</button>
-            <button class="hanoi__disk" data-disk-num="5">5</button>
+          <div class="hanoi__rod hanoi__rod-1">
+            <div class="hanoi__rod-design rod__container">
+              <div class="rod"></div>
+              <div class="rod__base"></div>
+            </div>
+            <div class="hanoi__disks-container">
+              <button
+                class="hanoi__disk"
+                data-disk-num="1"
+                data-is-selected="false"
+              >
+                1
+              </button>
+              <button
+                class="hanoi__disk"
+                data-disk-num="2"
+                data-is-selected="false"
+              >
+                2
+              </button>
+              <button
+                class="hanoi__disk"
+                data-disk-num="3"
+                data-is-selected="false"
+              >
+                3
+              </button>
+              <button
+                class="hanoi__disk"
+                data-disk-num="4"
+                data-is-selected="false"
+              >
+                4
+              </button>
+              <button
+                class="hanoi__disk"
+                data-disk-num="5"
+                data-is-selected="false"
+              >
+                5
+              </button>
+            </div>
           </div>
-          <div class="hanoi__rod-2"></div>
-          <div class="hanoi__rod-3"></div>
+          <div class="hanoi__rod hanoi__rod-2">
+            <div class="hanoi__rod-design rod__container">
+              <div class="rod"></div>
+              <div class="rod__base"></div>
+            </div>
+          </div>
+          <div class="hanoi__rod hanoi__rod-3">
+            <div class="hanoi__rod-design rod__container">
+              <div class="rod rod--black"></div>
+              <div class="rod__base"></div>
+            </div>
+            <div class="hanoi__disks-container"></div>
+          </div>
         </div>
       </section>
     </main>
