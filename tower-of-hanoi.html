@@ -16,7 +16,13 @@
         <form class="game__settings">
           <label>
             Start with:
-            <input type="number" name="" min="1" max="5" id="number-of-disks" />
+            <input
+              type="number"
+              value="1"
+              min="1"
+              max="5"
+              id="number-of-disks"
+            />
             disks
           </label>
           <button type="submit">START</button>
@@ -32,56 +38,67 @@
               <div class="rod"></div>
               <div class="rod__base"></div>
             </div>
-            <div class="hanoi__disks-container">
-              <button
-                class="hanoi__disk"
-                data-disk-num="1"
-                data-is-selected="false"
-              >
-                1
-              </button>
-              <button
-                class="hanoi__disk"
-                data-disk-num="2"
-                data-is-selected="false"
-              >
-                2
-              </button>
-              <button
-                class="hanoi__disk"
-                data-disk-num="3"
-                data-is-selected="false"
-              >
-                3
-              </button>
-              <button
-                class="hanoi__disk"
-                data-disk-num="4"
-                data-is-selected="false"
-              >
-                4
-              </button>
-              <button
-                class="hanoi__disk"
-                data-disk-num="5"
-                data-is-selected="false"
-              >
-                5
-              </button>
-            </div>
+            <ul class="hanoi__disks-container">
+              <li class="hanoi__disk__container">
+                <button
+                  class="hanoi_disk"
+                  data-disk-num="1"
+                  data-is-selected="false"
+                >
+                  1
+                </button>
+              </li>
+              <li class="hanoi__disk__container">
+                <button
+                  class="hanoi_disk"
+                  data-disk-num="2"
+                  data-is-selected="false"
+                >
+                  2
+                </button>
+              </li>
+              <li class="hanoi__disk__container">
+                <button
+                  class="hanoi_disk"
+                  data-disk-num="3"
+                  data-is-selected="false"
+                >
+                  3
+                </button>
+              </li>
+              <li class="hanoi__disk__container">
+                <button
+                  class="hanoi_disk"
+                  data-disk-num="4"
+                  data-is-selected="false"
+                >
+                  4
+                </button>
+              </li>
+              <li class="hanoi__disk__container">
+                <button
+                  class="hanoi_disk"
+                  data-disk-num="5"
+                  data-is-selected="false"
+                >
+                  5
+                </button>
+              </li>
+            </ul>
           </div>
           <div class="hanoi__rod hanoi__rod-2">
             <div class="hanoi__rod-design rod__container">
               <div class="rod"></div>
               <div class="rod__base"></div>
             </div>
+            <ul class="hanoi__disks-container"></ul>
           </div>
           <div class="hanoi__rod hanoi__rod-3">
             <div class="hanoi__rod-design rod__container">
               <div class="rod rod--black"></div>
               <div class="rod__base"></div>
             </div>
-            <div class="hanoi__disks-container"></div>
+            <ul class="hanoi__disks-container"></ul>
           </div>
         </div>
       </section>
