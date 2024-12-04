@@ -108,56 +108,121 @@ h3 {
   background-color: #7bb365;
   width: 3.64rem;
 }
+.hanoi__disk[data-disk-num="1"][data-is-selected=true] {
+  animation-name: selectedDiskAnim-1;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+@keyframes selectedDiskAnim-1 {
+  from {
+    background-color: #62994c;
+  }
+  to {
+    background-color: #98c487;
+  }
+}
 .hanoi__disk[data-disk-num="1"]:hover {
   background-color: #5b7e4d;
-  outline-style: solid;
-  outline-color: #394f30;
-  outline-width: 2px;
-  outline-offset: -5px;
+}
+.hanoi__disk[data-disk-num="1"]:active {
+  background-color: #aac5a0;
 }
 .hanoi__disk[data-disk-num="2"] {
   background-color: #5bc0eb;
   width: 5.46rem;
 }
+.hanoi__disk[data-disk-num="2"][data-is-selected=true] {
+  animation-name: selectedDiskAnim-2;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+@keyframes selectedDiskAnim-2 {
+  from {
+    background-color: #2eafe5;
+  }
+  to {
+    background-color: #88d1f1;
+  }
+}
 .hanoi__disk[data-disk-num="2"]:hover {
   background-color: #289fd2;
-  outline-style: solid;
-  outline-color: #1b6e92;
-  outline-width: 2px;
-  outline-offset: -5px;
+}
+.hanoi__disk[data-disk-num="2"]:active {
+  background-color: #a5d8ee;
 }
 .hanoi__disk[data-disk-num="3"] {
   background-color: #fde74c;
   width: 7.28rem;
 }
+.hanoi__disk[data-disk-num="3"][data-is-selected=true] {
+  animation-name: selectedDiskAnim-3;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+@keyframes selectedDiskAnim-3 {
+  from {
+    background-color: #fce01a;
+  }
+  to {
+    background-color: #feee7e;
+  }
+}
 .hanoi__disk[data-disk-num="3"]:hover {
   background-color: #edd20f;
-  outline-style: solid;
-  outline-color: #a5920b;
-  outline-width: 2px;
-  outline-offset: -5px;
+}
+.hanoi__disk[data-disk-num="3"]:active {
+  background-color: #f9ed9d;
 }
 .hanoi__disk[data-disk-num="4"] {
   background-color: #f3b977;
   width: 9.1rem;
 }
+.hanoi__disk[data-disk-num="4"][data-is-selected=true] {
+  animation-name: selectedDiskAnim-4;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+@keyframes selectedDiskAnim-4 {
+  from {
+    background-color: #efa148;
+  }
+  to {
+    background-color: #f7d1a6;
+  }
+}
 .hanoi__disk[data-disk-num="4"]:hover {
   background-color: #e2943c;
-  outline-style: solid;
-  outline-color: #b66d1b;
-  outline-width: 2px;
-  outline-offset: -5px;
+}
+.hanoi__disk[data-disk-num="4"]:active {
+  background-color: #f6ddc1;
 }
 .hanoi__disk[data-disk-num="5"] {
   background-color: #e34076;
   width: 10.92rem;
 }
+.hanoi__disk[data-disk-num="5"][data-is-selected=true] {
+  animation-name: selectedDiskAnim-5;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+@keyframes selectedDiskAnim-5 {
+  from {
+    background-color: #d11f5a;
+  }
+  to {
+    background-color: #ea6c96;
+  }
+}
 .hanoi__disk[data-disk-num="5"]:hover {
   background-color: #b02654;
-  outline-style: solid;
-  outline-color: #711936;
-  outline-width: 2px;
-  outline-offset: -5px;
+}
+.hanoi__disk[data-disk-num="5"]:active {
+  background-color: #e68aa8;
 }
 .hanoi__disk__container {
   height: 1.5rem;
