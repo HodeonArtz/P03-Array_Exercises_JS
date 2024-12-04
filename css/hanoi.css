@@ -97,7 +97,21 @@ h3 {
   flex-direction: column;
   align-items: center;
 }
-
+.hanoi__disks-container[data-disk-length="1"] {
+  height: 1.5rem;
+}
+.hanoi__disks-container[data-disk-length="2"] {
+  height: 3rem;
+}
+.hanoi__disks-container[data-disk-length="3"] {
+  height: 4.5rem;
+}
+.hanoi__disks-container[data-disk-length="4"] {
+  height: 6rem;
+}
+.hanoi__disks-container[data-disk-length="5"] {
+  height: 7.5rem;
+}
 .hanoi__disk {
   width: 100%;
   height: 100%;
