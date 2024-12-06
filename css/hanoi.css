@@ -58,6 +58,15 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+.game__in-game__btn-end-game {
+  background-color: #bb5151;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
 .hanoi__rod {
   display: flex;
   flex-direction: column;
