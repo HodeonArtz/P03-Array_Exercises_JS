@@ -1,4 +1,13 @@
 "use strict";
+/**
+ * @typedef {Object} Rod
+ * @property {Element} element
+ * @property {Element[]} disks
+ */
+
+/**
+ * @returns {Rod}
+ */
 const rods = [
   {
     element: document.querySelector(".hanoi__rod-1 .hanoi__disks-container"),
@@ -13,6 +22,7 @@ const rods = [
     disks: [],
   },
 ];
+
 const rodElements = [...document.querySelectorAll(".hanoi__disks-container")];
 
 /**
