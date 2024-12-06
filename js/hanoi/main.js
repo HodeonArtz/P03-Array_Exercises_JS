@@ -57,15 +57,23 @@ function setStartGame(numberOfDisks) {
   if (numberOfDisks < 2 || numberOfDisks > 5)
     throw new Error(`Number of disks should be between 2-5: ${numberOfDisks}`);
 
+  rods.forEach((rod) => {
+    rod.disks = [];
+  });
+
   rodElements.forEach((rodElement) => {
     rodElement.innerHTML = "";
     rodElement.dataset.diskLength = numberOfDisks;
   });
 
   for (let diskNum = 1; diskNum <= numberOfDisks; diskNum++) {
-    rodElements[0].appendChild(generateDisk(diskNum));
+    const diskGenerated = generateDisk(diskNum);
+    rodElements[0].appendChild(diskGenerated);
+    rods[0].disks.push(diskGenerated);
   }
 }
+
+// <<===========||===========||===========||===========>>
 
 function showStartScreen() {
   document.querySelector(".game__start").style.display = "";
@@ -75,3 +83,21 @@ function showInGameScreen() {
   document.querySelector(".game__start").style.display = "none";
   document.querySelector(".game__in-game").style.display = "";
 }
+
+// <<===========||===========||===========||===========>>
+
+/**
+ *
+ * @param {Event|undefined} event
+ */
+function handleOnStartGame(event) {
+  event?.preventDefault();
+  const disksAmount = +document.querySelector("#number-of-disks").value;
+
+  showInGameScreen();
+  setStartGame(disksAmount);
+}
+
+const gameSettingsForm = document.querySelector(".game__start__settings");
+
+gameSettingsForm.addEventListener("submit", handleOnStartGame);

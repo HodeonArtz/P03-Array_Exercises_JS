@@ -29,7 +29,7 @@
           <button type="submit">START</button>
         </form>
       </section>
-      <section class="game__in-game">
+      <section class="game__in-game" style="display: none">
         <h3 class="game__in-game__message">
           Move all the disks to the black rod!
         </h3>
@@ -39,53 +39,7 @@
               <div class="rod"></div>
               <div class="rod__base"></div>
             </div>
-            <ul class="hanoi__disks-container" data-disk-length="5">
-              <li class="hanoi__disk__container">
-                <button
-                  class="hanoi__disk"
-                  data-disk-num="1"
-                  data-is-selected="false"
-                >
-                  1
-                </button>
-              </li>
-              <li class="hanoi__disk__container">
-                <button
-                  class="hanoi__disk"
-                  data-disk-num="2"
-                  data-is-selected="false"
-                >
-                  2
-                </button>
-              </li>
-              <li class="hanoi__disk__container">
-                <button
-                  class="hanoi__disk"
-                  data-disk-num="3"
-                  data-is-selected="false"
-                >
-                  3
-                </button>
-              </li>
-              <li class="hanoi__disk__container">
-                <button
-                  class="hanoi__disk"
-                  data-disk-num="4"
-                  data-is-selected="false"
-                >
-                  4
-                </button>
-              </li>
-              <li class="hanoi__disk__container">
-                <button
-                  class="hanoi__disk"
-                  data-disk-num="5"
-                  data-is-selected="false"
-                >
-                  5
-                </button>
-              </li>
-            </ul>
+            <ul class="hanoi__disks-container" data-disk-length="5"></ul>
           </div>
           <div class="hanoi__rod hanoi__rod-2">
             <div class="hanoi__rod-design rod__container">
