@@ -117,6 +117,19 @@ h3 {
   height: 100%;
   border-radius: 0.5rem;
   font-weight: 500;
+  animation-name: movedDiskAnim;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+@keyframes movedDiskAnim {
+  from {
+    transform: translateY(-4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 .hanoi__disk[data-disk-num="1"] {
   background-color: #7bb365;
