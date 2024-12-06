@@ -66,3 +66,12 @@ function setStartGame(numberOfDisks) {
     rodElements[0].appendChild(generateDisk(diskNum));
   }
 }
+
+function showStartScreen() {
+  document.querySelector(".game__start").style.display = "";
+  document.querySelector(".game__in-game").style.display = "none";
+}
+function showInGameScreen() {
+  document.querySelector(".game__start").style.display = "none";
+  document.querySelector(".game__in-game").style.display = "";
+}
