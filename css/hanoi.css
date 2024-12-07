@@ -109,6 +109,8 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: end;
+  cursor: pointer;
 }
 .hanoi__disks-container[data-disk-length="1"] {
   height: 1.5rem;
@@ -133,6 +135,10 @@ h3 {
   animation-name: movedDiskAnim;
   animation-fill-mode: forwards;
   animation-duration: 0.5s;
+}
+.hanoi__disk.disk-ghost {
+  animation: unset;
+  opacity: 0.5;
 }
 @keyframes movedDiskAnim {
   from {

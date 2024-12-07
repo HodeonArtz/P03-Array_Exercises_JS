@@ -26,7 +26,7 @@ const rods = [
 const rodElements = [...document.querySelectorAll(".hanoi__disks-container")];
 
 /**
- * @returns {Element|null}
+ * @returns {Element|Node}
  */
 let selectedDisk = null;
 
@@ -36,7 +36,7 @@ let selectedDisk = null;
  * @param {function} handleOnClick
  * @returns {Element}
  */
-function generateDisk(diskNumber, handleOnClick) {
+function generateDisk(diskNumber, handleOnClick = undefined) {
   if (diskNumber < 1 || diskNumber > 5) {
     throw new Error(`Error generating disk with disk number ${diskNumber}`);
   }
@@ -48,7 +48,7 @@ function generateDisk(diskNumber, handleOnClick) {
   buttonDisk.dataset.isSelected = false;
   buttonDisk.dataset.diskNum = diskNumber;
   buttonDisk.textContent = diskNumber;
-  buttonDisk.addEventListener("click", handleOnClick);
+  if (handleOnClick) buttonDisk.addEventListener("click", handleOnClick);
 
   itemDisk.classList.add("hanoi__disk__container");
   itemDisk.appendChild(buttonDisk);
@@ -78,6 +78,8 @@ function setStartGame(numberOfDisks) {
     rodElements[0].appendChild(diskGenerated);
     rods[0].disks.push(diskGenerated.querySelector("button"));
   }
+
+  selectedDisk = null;
 }
 
 // <<===========||===========||===========||===========>>
@@ -146,6 +148,18 @@ function getDisksNumbers(rodDisks) {
 }
 
 /**
+ *
+ * @param {Element[]} rods
+ */
+function removeDiskGhosts(rods) {
+  rods.forEach((rodElement) => {
+    [...rodElement.querySelectorAll("li:has(.disk-ghost)")].forEach((disk) =>
+      disk.remove()
+    );
+  });
+}
+
+/**
  * @param {Event|undefined} event
  */
 function handleOnSelectDisk(event) {
@@ -160,9 +174,61 @@ function handleOnSelectDisk(event) {
   if (selectedDisk === event.target) {
     selectedDisk.dataset.isSelected = false;
     selectedDisk = null;
+    removeDiskGhosts(rodElements);
     return;
   }
   selectedDisk = event.target;
 
   selectedDisk.dataset.isSelected = true;
 }
+
+// <<===========||===========||===========||===========>>
+// TODO: show selected disk with 0.5 opacity on hover rods
+
+/**
+ *
+ * @param {Element|Node} disk
+ * @returns {Element|Node}
+ */
+function generateDiskGhost(disk) {
+  const diskGhost = generateDisk(+disk.dataset.diskNum);
+  diskGhost.querySelector("button").classList.add("disk-ghost");
+  return diskGhost;
+}
+
+/**
+ *
+ * @param {Element} rod
+ * @returns {Rod}
+ */
+function getRodObject(rodElement) {
+  return rods.find((rod) => rod.element === rodElement);
+}
+
+/**
+ * @param {Event|undefined} event
+ */
+function handleOnHoverRod(event) {
+  if (!selectedDisk) return;
+
+  const hoveredRod = getRodObject(event.currentTarget);
+
+  if (hoveredRod.disks.includes(selectedDisk)) {
+    return;
+  }
+  if (getDiskNumber(selectedDisk) > getDisksNumbers(hoveredRod.disks)[0]) {
+    return;
+  }
+
+  removeDiskGhosts(
+    rodElements.filter((rodElement) => rodElement !== hoveredRod.element)
+  );
+
+  if (!hoveredRod.element.querySelector(".disk-ghost")) {
+    hoveredRod.element.appendChild(generateDiskGhost(selectedDisk));
+  }
+}
+
+rodElements.forEach((rod) => {
+  rod.addEventListener("mouseover", handleOnHoverRod);
+});
