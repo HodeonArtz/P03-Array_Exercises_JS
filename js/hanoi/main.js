@@ -273,6 +273,7 @@ function handleOnClickRod(event) {
   // Do nothing until user selects a disk
   if (!selectedDisk) return;
 
+  // Made by HodeonArtz (Marti)
   const clickedRod = getRodObject(event.currentTarget);
 
   if (clickedRod.disks.includes(selectedDisk)) {
