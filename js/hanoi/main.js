@@ -23,7 +23,8 @@ const rods = [
   },
 ];
 
-const rodElements = [...document.querySelectorAll(".hanoi__disks-container")];
+const rodElements = [...document.querySelectorAll(".hanoi__disks-container")],
+  gameMessage = document.querySelector(".game__in-game__message");
 
 /**
  * @returns {Element|Node}
@@ -31,6 +32,16 @@ const rodElements = [...document.querySelectorAll(".hanoi__disks-container")];
 let selectedDisk = null,
   disksAmount = 0,
   movementsAmount = 0;
+
+function setStartMessage() {
+  gameMessage.textContent = "Move all the disks to the dark tower!";
+}
+function setSelectedDiskMessage(diskNumber) {
+  gameMessage.textContent = `Disk #${diskNumber} selected.`;
+}
+function setEndMessage(movementsNumber) {
+  gameMessage.textContent = `Congrats! 🎉 You moved disks with ${movementsNumber} moves.`;
+}
 
 function generateDiskItem() {
   const itemDisk = document.createElement("li");
@@ -88,6 +99,7 @@ function setStartGame(numberOfDisks) {
 
   selectedDisk = null;
   disksAmount = numberOfDisks;
+  setStartMessage();
 }
 
 // <<===========||===========||===========||===========>>
@@ -114,6 +126,11 @@ function handleOnStartGame(event) {
   showInGameScreen();
   setStartGame(disksAmount);
   movementsAmount = 0;
+
+  rodElements.forEach((rod) => {
+    rod.addEventListener("mouseover", handleOnHoverRod);
+    rod.addEventListener("click", handleOnClickRod);
+  });
 }
 
 const gameSettingsForm = document.querySelector(".game__start__settings");
@@ -193,6 +210,8 @@ function handleOnSelectDisk(event) {
   selectedDisk = event.target;
 
   selectedDisk.dataset.isSelected = true;
+
+  setSelectedDiskMessage(clickedNumber);
 }
 
 // <<===========||===========||===========||===========>>
@@ -241,10 +260,6 @@ function handleOnHoverRod(event) {
   }
 }
 
-rodElements.forEach((rod) => {
-  rod.addEventListener("mouseover", handleOnHoverRod);
-});
-
 // <<===========||===========||===========||===========>>
 
 /**
@@ -281,8 +296,18 @@ function handleOnClickRod(event) {
   movementsAmount++;
   selectedDisk.dataset.isSelected = false;
   selectedDisk = null;
-}
 
-rodElements.forEach((rod) => {
-  rod.addEventListener("click", handleOnClickRod);
-});
+  if (rods[2].disks.length === disksAmount) {
+    rods.forEach((rod) => {
+      rod.element.removeEventListener("mouseover", handleOnHoverRod);
+      rod.element.removeEventListener("click", handleOnClickRod);
+
+      rod.disks.forEach((disk) => {
+        disk.removeEventListener("click", handleOnSelectDisk);
+      });
+    });
+    setEndMessage(movementsAmount);
+    return;
+  }
+  setStartMessage();
+}
