@@ -1,4 +1,6 @@
 "use strict";
+// >>=====>>====>>====#[<| Variables |>]#====<<====<<=====<<
+
 /**
  * @typedef {Object} Rod
  * @property {Element} element
@@ -33,6 +35,7 @@ let selectedDisk = null,
   disksAmount = 0,
   movementsAmount = 0;
 
+// >>=====>>====>>====#[<| Game messages |>]#====<<====<<=====<<
 function setStartMessage() {
   gameMessage.textContent = "Move all the disks to the dark tower!";
 }
@@ -42,6 +45,8 @@ function setSelectedDiskMessage(diskNumber) {
 function setEndMessage(movementsNumber) {
   gameMessage.textContent = `Congrats! 🎉 You moved disks with ${movementsNumber} moves.`;
 }
+
+// >>=====>>====>>====#[<| Disk generation |>]#====<<====<<=====<<
 
 function generateDiskItem() {
   const itemDisk = document.createElement("li");
@@ -74,6 +79,18 @@ function generateDisk(diskNumber, handleOnClick = undefined) {
   return itemDisk;
 }
 
+// >>=====>>====>>====#[<| Show specific sreen |>]#====<<====<<=====<<
+
+function showStartScreen() {
+  document.querySelector(".game__start").style.display = "";
+  document.querySelector(".game__in-game").style.display = "none";
+}
+function showInGameScreen() {
+  document.querySelector(".game__start").style.display = "none";
+  document.querySelector(".game__in-game").style.display = "";
+}
+// >>=====>>====>>====#[<| handling start button |>]#====<<====<<=====<<
+
 /**
  *
  * @param {number} numberOfDisks
@@ -101,19 +118,6 @@ function setStartGame(numberOfDisks) {
   disksAmount = numberOfDisks;
   setStartMessage();
 }
-
-// <<===========||===========||===========||===========>>
-
-function showStartScreen() {
-  document.querySelector(".game__start").style.display = "";
-  document.querySelector(".game__in-game").style.display = "none";
-}
-function showInGameScreen() {
-  document.querySelector(".game__start").style.display = "none";
-  document.querySelector(".game__in-game").style.display = "";
-}
-
-// <<===========||===========||===========||===========>>
 
 /**
  *
