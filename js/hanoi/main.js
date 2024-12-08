@@ -28,7 +28,15 @@ const rodElements = [...document.querySelectorAll(".hanoi__disks-container")];
 /**
  * @returns {Element|Node}
  */
-let selectedDisk = null;
+let selectedDisk = null,
+  disksAmount = 0,
+  movementsAmount = 0;
+
+function generateDiskItem() {
+  const itemDisk = document.createElement("li");
+  itemDisk.classList.add("hanoi__disk__container");
+  return itemDisk;
+}
 
 /**
  *
@@ -42,7 +50,7 @@ function generateDisk(diskNumber, handleOnClick = undefined) {
   }
 
   const buttonDisk = document.createElement("button"),
-    itemDisk = document.createElement("li");
+    itemDisk = generateDiskItem();
 
   buttonDisk.classList.add("hanoi__disk");
   buttonDisk.dataset.isSelected = false;
@@ -50,7 +58,6 @@ function generateDisk(diskNumber, handleOnClick = undefined) {
   buttonDisk.textContent = diskNumber;
   if (handleOnClick) buttonDisk.addEventListener("click", handleOnClick);
 
-  itemDisk.classList.add("hanoi__disk__container");
   itemDisk.appendChild(buttonDisk);
 
   return itemDisk;
@@ -80,6 +87,7 @@ function setStartGame(numberOfDisks) {
   }
 
   selectedDisk = null;
+  disksAmount = numberOfDisks;
 }
 
 // <<===========||===========||===========||===========>>
@@ -105,6 +113,7 @@ function handleOnStartGame(event) {
 
   showInGameScreen();
   setStartGame(disksAmount);
+  movementsAmount = 0;
 }
 
 const gameSettingsForm = document.querySelector(".game__start__settings");
@@ -177,6 +186,10 @@ function handleOnSelectDisk(event) {
     removeDiskGhosts(rodElements);
     return;
   }
+  if (selectedDisk) {
+    return;
+  }
+
   selectedDisk = event.target;
 
   selectedDisk.dataset.isSelected = true;
@@ -213,6 +226,9 @@ function handleOnHoverRod(event) {
 
   const hoveredRod = getRodObject(event.currentTarget);
 
+  removeDiskGhosts(
+    rodElements.filter((rodElement) => rodElement !== hoveredRod.element)
+  );
   if (hoveredRod.disks.includes(selectedDisk)) {
     return;
   }
@@ -220,15 +236,53 @@ function handleOnHoverRod(event) {
     return;
   }
 
-  removeDiskGhosts(
-    rodElements.filter((rodElement) => rodElement !== hoveredRod.element)
-  );
-
   if (!hoveredRod.element.querySelector(".disk-ghost")) {
-    hoveredRod.element.appendChild(generateDiskGhost(selectedDisk));
+    hoveredRod.element.prepend(generateDiskGhost(selectedDisk));
   }
 }
 
 rodElements.forEach((rod) => {
   rod.addEventListener("mouseover", handleOnHoverRod);
+});
+
+// <<===========||===========||===========||===========>>
+
+/**
+ * @param {Event|undefined} event
+ */
+function handleOnClickRod(event) {
+  // Do nothing until user selects a disk
+  if (!selectedDisk) return;
+
+  const clickedRod = getRodObject(event.currentTarget);
+
+  if (clickedRod.disks.includes(selectedDisk)) {
+    return;
+  }
+
+  if (getDiskNumber(selectedDisk) > getDisksNumbers(clickedRod.disks)[0]) {
+    return;
+  }
+
+  removeDiskGhosts(rodElements);
+
+  // be careful with this part
+  rods[getRodPosition(selectedDisk)].disks = rods[
+    getRodPosition(selectedDisk)
+  ].disks.filter((disk) => disk !== selectedDisk);
+
+  clickedRod.disks.unshift(selectedDisk);
+
+  const diskItem = generateDiskItem();
+
+  selectedDisk.closest("li").remove();
+  diskItem.appendChild(selectedDisk);
+  clickedRod.element.prepend(diskItem);
+  movementsAmount++;
+  selectedDisk.dataset.isSelected = false;
+  selectedDisk = null;
+}
+
+rodElements.forEach((rod) => {
+  rod.addEventListener("click", handleOnClickRod);
 });
