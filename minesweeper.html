@@ -7,5 +7,320 @@
     <link rel="stylesheet" href="./css/minesweeper.css" />
     <script src="./js/minesweeper/main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Minesweeper</h1>
+    </header>
+    <main class="game-window">
+      <section class="panel">
+        <button class="btn panel__btn-play" title="Play">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="ionicon icon"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M133 440a35.37 35.37 0 01-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37 7.46-27.53 19.46-34.33a35.13 35.13 0 0135.77.45l247.85 148.36a36 36 0 010 61l-247.89 148.4A35.5 35.5 0 01133 440z"
+            />
+          </svg>
+        </button>
+
+        <span class="panel__emoji" title="Game state">🙂</span>
+
+        <div class="panel__score__container">
+          <span class="panel__score"> 00 </span>
+        </div>
+      </section>
+      <section class="game">
+        <table class="mine-grid">
+          <tbody>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="1" data-state="cleared">
+                <span class="mine-grid__num">1</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="2" data-state="cleared">
+                <span class="mine-grid__num">2</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="3" data-state="cleared">
+                <span class="mine-grid__num">3</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="4" data-state="cleared">
+                <span class="mine-grid__num">4</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="5" data-state="cleared">
+                <span class="mine-grid__num">5</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="6" data-state="cleared">
+                <span class="mine-grid__num">6</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="7" data-state="cleared">
+                <span class="mine-grid__num">7</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="8" data-state="cleared">
+                <span class="mine-grid__num">8</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td
+                class="mine-grid__col"
+                data-mine-num="-1"
+                data-state="cleared"
+              >
+                <span class="mine-grid__num">💣</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td
+                class="mine-grid__col"
+                data-mine-num="-1"
+                data-state="cleared"
+              >
+                <span class="mine-grid__num">💥</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td
+                class="mine-grid__col"
+                data-mine-num="-1"
+                data-state="flagged"
+              >
+                <span class="mine-grid__num">💣</span
+                ><button class="btn mine-grid__btn">🚩</button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+            <tr class="mine-grid__row">
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+              <td class="mine-grid__col" data-mine-num="0" data-state="hidden">
+                <span class="mine-grid__num">0</span
+                ><button class="btn mine-grid__btn"></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
 </html>

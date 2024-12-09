@@ -1,0 +1,269 @@
+@import url("https://fonts.cdnfonts.com/css/general-sans");
+* {
+  box-sizing: border-box;
+}
+
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+body,
+ul,
+table,
+tbody,
+tr,
+td {
+  margin: unset;
+  padding: unset;
+}
+
+button {
+  border: unset;
+  background-color: unset;
+  font-family: unset;
+  font-size: unset;
+  cursor: pointer;
+}
+
+input {
+  border: unset;
+  background-color: unset;
+  font-family: unset;
+  font-size: unset;
+}
+input:focus {
+  outline: unset;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-family: "General Sans", sans-serif;
+  color: #252525;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  margin-bottom: 0.65rem;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+p,
+span,
+button {
+  font-size: 1rem;
+}
+
+svg.icon {
+  height: 1rem;
+}
+
+.game-window {
+  background-color: #f1f1f1;
+  border-radius: 0.5rem;
+}
+.game-window .panel__btn-play {
+  background-color: #f1f1f1;
+  border-radius: 0.5rem;
+}
+.game-window .panel__btn-play .icon path {
+  fill: #525252;
+}
+.game-window .panel__btn-play:hover {
+  background-color: #d8d8d8;
+}
+.game-window .panel__btn-play:hover .icon path {
+  fill: #393939;
+}
+.game-window .panel__btn-play:active {
+  background-color: white;
+}
+.game-window .panel__btn-play:active .icon path {
+  fill: #6c6c6c;
+}
+.game-window .panel__score {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.game .mine-grid {
+  background-color: #fcfcfc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd) .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even) .mine-grid__num {
+  background-color: #e1edff;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd) .mine-grid__btn, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even) .mine-grid__btn {
+  background-color: #ffffff;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd) .mine-grid__btn:hover, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even) .mine-grid__btn:hover {
+  background-color: #e6e6e6;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd) .mine-grid__btn:active, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even) .mine-grid__btn:active {
+  background-color: white;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="1"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="1"] .mine-grid__num {
+  background-color: #cc5256;
+  color: #53181a;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
+  background-color: #be8023;
+  color: #271a07;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
+  background-color: #e9b872;
+  color: #925f17;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
+  background-color: #d3c54b;
+  color: #565015;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
+  background-color: #90a959;
+  color: #2c341b;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
+  background-color: #6494aa;
+  color: #20333b;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
+  background-color: #7276c0;
+  color: #272a58;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+  background-color: #ac6ad3;
+  color: #4f206b;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd) .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even) .mine-grid__num {
+  background-color: #c7d3e4;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd) .mine-grid__btn, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even) .mine-grid__btn {
+  background-color: #f3f3f3;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd) .mine-grid__btn:hover, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even) .mine-grid__btn:hover {
+  background-color: #e6e6e6;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd) .mine-grid__btn:active, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even) .mine-grid__btn:active {
+  background-color: white;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="1"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="1"] .mine-grid__num {
+  background-color: #b5363a;
+  color: #53181a;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
+  background-color: #93631b;
+  color: #271a07;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
+  background-color: #e2a246;
+  color: #925f17;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
+  background-color: #bdae2e;
+  color: #565015;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
+  background-color: #748847;
+  color: #2c341b;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
+  background-color: #4e798d;
+  color: #20333b;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
+  background-color: #4f54b0;
+  color: #272a58;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+  background-color: #9643c7;
+  color: #4f206b;
+}
+
+body {
+  padding-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+}
+.panel > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.game {
+  padding: 0.5rem;
+}
+.game .mine-grid {
+  display: flex;
+}
+.game .mine-grid__num {
+  z-index: 1;
+  position: absolute;
+  user-select: none;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game .mine-grid__btn {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+.game .mine-grid__row {
+  box-sizing: content-box;
+  gap: 0;
+  display: flex;
+}
+.game .mine-grid__col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 2.25rem;
+}
+.game .mine-grid__col[data-state=hidden] .mine-grid__num, .game .mine-grid__col[data-state=flagged] .mine-grid__num {
+  display: none;
+}
+.game .mine-grid__col[data-state=cleared] .mine-grid__btn {
+  display: none;
+}
+
+.game-window {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0.5rem;
+}
+
+/*# sourceMappingURL=minesweeper.css.map */
