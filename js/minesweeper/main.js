@@ -26,19 +26,6 @@ function getColNumber(col) {
   return +col.dataset.mineNum;
 }
 
-/**
- *
- * @param {HTMLObjectElement | HTMLElement} col
- * @param {{number{number}, state{"hidden","cleared", "flagged"}}} param1
- */
-/* function setColData(col, { number, state = "hidden" }) {
-  if (number) {
-    col.dataset.mineNum = number;
-    col.textContent = number;
-  }
-
-  col.dataset.state = state;
-} */
 function setColData(col, getNumber, state = "hidden") {
   const number = getNumber(+col.dataset.mineNum);
   col.dataset.mineNum = number;
