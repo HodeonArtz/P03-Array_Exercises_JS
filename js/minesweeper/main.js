@@ -110,8 +110,60 @@ document.querySelector(".panel__btn-play").addEventListener("click", () => {
   setRandomMines();
 });
 
-document.querySelectorAll(".mine-grid__btn").forEach((btn) =>
+function findPosition(matrix, element) {
+  for (let x = 0; x < matrix.length; x++) {
+    const y = matrix[x].indexOf(element);
+    if (y !== -1) {
+      return { x, y };
+    }
+  }
+  return null;
+}
+
+function expandConnectedCols(posRow, posCol) {
+  const colsQueue = [];
+  colsQueue.push([posRow, posCol]);
+
+  while (colsQueue.length > 0) {
+    const [queueRow, queueCol] = colsQueue.shift();
+
+    if (!mineGrid[queueRow]) continue;
+    if (!mineGrid[queueRow][queueCol]) continue;
+    if (
+      mineGrid[queueRow][queueCol].dataset.state === "cleared" ||
+      mineGrid[queueRow][queueCol].dataset.mineNum === -1
+    )
+      continue;
+
+    mineGrid[queueRow][queueCol].dataset.state = "cleared";
+
+    if (mineGrid[queueRow][queueCol].dataset.mineNum > 0) continue;
+
+    for (let dRow = -1; dRow <= 1; dRow++) {
+      for (let dCol = -1; dCol <= 1; dCol++) {
+        if (dRow !== 0 || dCol !== 0) {
+          colsQueue.push([queueRow + dRow, queueCol + dCol]);
+        }
+      }
+    }
+  }
+}
+
+document.querySelectorAll(".mine-grid__btn").forEach((btn) => {
+  btn.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    const colState = event.currentTarget.parentNode.dataset.state;
+    if (colState === "hidden") {
+      event.currentTarget.parentNode.dataset.state = "flagged";
+      event.currentTarget.textContent = "🚩";
+    }
+    if (colState === "flagged") {
+      event.currentTarget.parentNode.dataset.state = "hidden";
+      event.currentTarget.textContent = "";
+    }
+  });
   btn.addEventListener("click", (event) => {
+    if (event.currentTarget.parentNode.dataset.state === "flagged") return;
     const clickedCol = event.currentTarget.closest(".mine-grid__col");
 
     if (clickedCol.dataset.mineNum < 0) {
@@ -124,6 +176,18 @@ document.querySelectorAll(".mine-grid__btn").forEach((btn) =>
     }
     scorePoints.textContent =
       +scorePoints.textContent + +clickedCol.dataset.mineNum;
+
+    const clickedColPosition = findPosition(mineGrid, clickedCol);
+
+    expandConnectedCols(clickedColPosition.x, clickedColPosition.y);
     clickedCol.dataset.state = "cleared";
-  })
-);
+
+    if (
+      mineGrid
+        .map((row) => row.filter((col) => col.dataset.mineNum != -1))
+        .every((row) => row.every((col) => col.dataset.state == "cleared"))
+    ) {
+      document.querySelector(".panel__emoji").textContent = "😎";
+    }
+  });
+});
