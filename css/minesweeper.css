@@ -118,36 +118,36 @@ svg.icon {
   background-color: white;
 }
 .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="1"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="1"] .mine-grid__num {
-  background-color: #cc5256;
-  color: #53181a;
-}
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
-  background-color: #be8023;
-  color: #271a07;
-}
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
-  background-color: #e9b872;
-  color: #925f17;
-}
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
-  background-color: #d3c54b;
-  color: #565015;
-}
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
-  background-color: #90a959;
-  color: #2c341b;
-}
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
   background-color: #6494aa;
   color: #20333b;
 }
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
+  background-color: #90a959;
+  color: #2c341b;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
+  background-color: #cc5256;
+  color: #53181a;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
   background-color: #7276c0;
   color: #272a58;
 }
-.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
+  background-color: #cf498c;
+  color: #501533;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
+  background-color: #be8023;
+  color: #271a07;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
   background-color: #ac6ad3;
   color: #4f206b;
+}
+.game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+  background-color: #d3c54b;
+  color: #565015;
 }
 .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd) .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even) .mine-grid__num {
   background-color: #c7d3e4;
@@ -162,36 +162,36 @@ svg.icon {
   background-color: white;
 }
 .game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="1"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="1"] .mine-grid__num {
-  background-color: #b5363a;
-  color: #53181a;
-}
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
-  background-color: #93631b;
-  color: #271a07;
-}
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
-  background-color: #e2a246;
-  color: #925f17;
-}
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
-  background-color: #bdae2e;
-  color: #565015;
-}
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
-  background-color: #748847;
-  color: #2c341b;
-}
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
   background-color: #4e798d;
   color: #20333b;
 }
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="2"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="2"] .mine-grid__num {
+  background-color: #748847;
+  color: #2c341b;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="3"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="3"] .mine-grid__num {
+  background-color: #b5363a;
+  color: #53181a;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="4"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="4"] .mine-grid__num {
   background-color: #4f54b0;
   color: #272a58;
 }
-.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="5"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="5"] .mine-grid__num {
+  background-color: #b53073;
+  color: #501533;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="6"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="6"] .mine-grid__num {
+  background-color: #93631b;
+  color: #271a07;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="7"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="7"] .mine-grid__num {
   background-color: #9643c7;
   color: #4f206b;
+}
+.game .mine-grid__row:nth-child(even) .mine-grid__col:nth-child(odd)[data-mine-num="8"] .mine-grid__num, .game .mine-grid__row:nth-child(odd) .mine-grid__col:nth-child(even)[data-mine-num="8"] .mine-grid__num {
+  background-color: #bdae2e;
+  color: #565015;
 }
 
 body {

@@ -85,6 +85,7 @@ function clearAll() {
 
 function setRandomMines() {
   zeroFillReset();
+  document.querySelector(".panel__emoji").textContent = "🙂";
   scorePoints.textContent = "00";
   mineGrid.forEach((row, indexRow) => {
     const amountOfMines = generateRandomNumber(1, 3);
@@ -115,6 +116,10 @@ document.querySelectorAll(".mine-grid__btn").forEach((btn) =>
 
     if (clickedCol.dataset.mineNum < 0) {
       clearAll();
+      document.querySelector(".panel__emoji").textContent = "😵";
+      event.currentTarget.parentNode.querySelector(
+        ".mine-grid__num"
+      ).textContent = "💥";
       return;
     }
     scorePoints.textContent =
